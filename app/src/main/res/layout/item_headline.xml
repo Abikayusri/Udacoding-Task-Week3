@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/hlCard"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="12dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/hlImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/hlSumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/hlJudul"
+            android:layout_marginStart="10dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="5"
+            android:text="Nama Lokasi"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:id="@+id/hlJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="5"
+            android:text="Judul Headline"
+            android:textColor="@android:color/white"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+

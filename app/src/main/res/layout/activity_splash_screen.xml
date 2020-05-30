@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:layout_centerInParent="true"
+        android:id="@+id/splashLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/news_api"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_below="@id/splashLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEWS API"
+        android:textColor="@android:color/black"
+        android:textSize="42sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
