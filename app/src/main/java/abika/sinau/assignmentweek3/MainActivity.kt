@@ -78,7 +78,8 @@ class MainActivity : AppCompatActivity() {
                             val status = response.body()?.status
                             if (status == "ok") {
                                 val data = response.body()?.articles
-                                showHeadline(data)
+                                rvNews.adapter = NewsAdapter(data)
+//                                showHeadline(data)
                             }
                         }
                     }

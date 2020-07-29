@@ -7,7 +7,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_headline.view.*
@@ -20,13 +19,6 @@ import java.text.SimpleDateFormat
  */
 class HeadlineAdapter(var data: List<ArticlesItem>?) :
     RecyclerView.Adapter<HeadlineAdapter.HeadlineHolder>() {
-    class HeadlineHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val headImg = itemView.hlImage
-        val headSource = itemView.hlSumber
-        val headTitle = itemView.hlJudul
-
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadlineHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_headline, parent, false)
@@ -57,6 +49,13 @@ class HeadlineAdapter(var data: List<ArticlesItem>?) :
             intent.putExtra("Url", data?.get(position)?.url)
             context.startActivity(intent)
         }
+
+    }
+
+    class HeadlineHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val headImg = itemView.hlImage
+        val headSource = itemView.hlSumber
+        val headTitle = itemView.hlJudul
 
     }
 }

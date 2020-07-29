@@ -8,6 +8,6 @@ package abika.sinau.assignmentweek3.network
 object Config {
     const val BASE_URL = "https://newsapi.org/v2/"
     const val API_KEY = "efdd7bc6487a4b629bdbda4ff15b19a4"
-    const val NEWS = "berita"
+    const val NEWS = "ekonomi"
     const val COUNTRY = "id"
 }
