@@ -7,6 +7,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_headline.view.*
@@ -22,9 +24,8 @@ class HeadlineAdapter(var data: List<ArticlesItem>?) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HeadlineHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_headline, parent, false)
-        val holder = HeadlineHolder(view)
 
-        return holder
+        return HeadlineHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -53,9 +54,9 @@ class HeadlineAdapter(var data: List<ArticlesItem>?) :
     }
 
     class HeadlineHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val headImg = itemView.hlImage
-        val headSource = itemView.hlSumber
-        val headTitle = itemView.hlJudul
+        val headImg: ImageView = itemView.hlImage
+        val headSource: TextView = itemView.hlSumber
+        val headTitle: TextView = itemView.hlJudul
 
     }
 }

@@ -31,11 +31,18 @@
                     android:textSize="21sp"
                     android:textStyle="bold" />
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvHeadline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
+
+                <me.relex.circleindicator.CircleIndicator2
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    app:ci_drawable="@drawable/red_radius"
+                    app:ci_drawable_unselected="@drawable/black_radius"
+                    android:layout_gravity="bottom"/>
 
                 <TextView
                     android:id="@+id/mainNews"
@@ -62,7 +69,7 @@
         android:id="@+id/pbMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:visibility="visible" />
 
 </RelativeLayout>

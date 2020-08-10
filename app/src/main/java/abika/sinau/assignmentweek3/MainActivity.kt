@@ -13,7 +13,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import kotlinx.android.synthetic.main.activity_main.*
+import me.relex.circleindicator.CircleIndicator2
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -79,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                             if (status == "ok") {
                                 val data = response.body()?.articles
                                 rvNews.adapter = NewsAdapter(data)
-//                                showHeadline(data)
+                                showHeadline(data)
                             }
                         }
                     }
@@ -105,6 +107,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun showHeadline(data: List<ArticlesItem>?) {
         rvHeadline.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvHeadline.adapter = HeadlineAdapter(data)
+        val headAdapter = HeadlineAdapter(data)
+        rvHeadline.adapter = headAdapter
+        val pagerSnapHelper = PagerSnapHelper()
+        pagerSnapHelper.attachToRecyclerView(rvHeadline)
+
+        // CircleIndicator2 for RecyclerView
+        val indicator: CircleIndicator2 = findViewById(R.id.indicator)
+        indicator.attachToRecyclerView(rvHeadline, pagerSnapHelper)
+        headAdapter.registerAdapterDataObserver(indicator.adapterDataObserver)
     }
 }
