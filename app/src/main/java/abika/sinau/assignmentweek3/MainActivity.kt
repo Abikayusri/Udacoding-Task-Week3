@@ -1,5 +1,6 @@
 package abika.sinau.assignmentweek3
 
+import abika.sinau.assignmentweek3.adapter.HeadAdapter
 import abika.sinau.assignmentweek3.adapter.HeadlineAdapter
 import abika.sinau.assignmentweek3.adapter.NewsAdapter
 import abika.sinau.assignmentweek3.model.ArticlesItem
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                             if (status == "ok") {
                                 val data = response.body()?.articles
                                 rvNews.adapter = NewsAdapter(data)
+                                // error di sini
                                 showHeadline(data)
                             }
                         }
@@ -105,9 +107,10 @@ class MainActivity : AppCompatActivity() {
         rvNews.adapter = NewsAdapter(data)
     }
 
+    // error di sini
     private fun showHeadline(data: List<ArticlesItem>?) {
         rvHeadline.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        val headAdapter = HeadlineAdapter(data)
+        val headAdapter = HeadAdapter(data)
         rvHeadline.adapter = headAdapter
         val pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(rvHeadline)
