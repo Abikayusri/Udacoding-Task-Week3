@@ -1,5 +1,6 @@
 package abika.sinau.assignmentweek3
 
+import abika.sinau.assignmentweek3.adapter.HeadAdapter
 import abika.sinau.assignmentweek3.adapter.HeadlineAdapter
 import abika.sinau.assignmentweek3.adapter.NewsAdapter
 import abika.sinau.assignmentweek3.model.ArticlesItem
@@ -13,7 +14,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import kotlinx.android.synthetic.main.activity_main.*
+import me.relex.circleindicator.CircleIndicator2
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -78,6 +81,8 @@ class MainActivity : AppCompatActivity() {
                             val status = response.body()?.status
                             if (status == "ok") {
                                 val data = response.body()?.articles
+                                rvNews.adapter = NewsAdapter(data)
+                                // error di sini
                                 showHeadline(data)
                             }
                         }
@@ -102,8 +107,17 @@ class MainActivity : AppCompatActivity() {
         rvNews.adapter = NewsAdapter(data)
     }
 
+    // error di sini
     private fun showHeadline(data: List<ArticlesItem>?) {
         rvHeadline.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvHeadline.adapter = HeadlineAdapter(data)
+        val headAdapter = HeadAdapter(data)
+        rvHeadline.adapter = headAdapter
+        val pagerSnapHelper = PagerSnapHelper()
+        pagerSnapHelper.attachToRecyclerView(rvHeadline)
+
+        // CircleIndicator2 for RecyclerView
+        val indicator: CircleIndicator2 = findViewById(R.id.indicator)
+        indicator.attachToRecyclerView(rvHeadline, pagerSnapHelper)
+        headAdapter.registerAdapterDataObserver(indicator.adapterDataObserver)
     }
 }
